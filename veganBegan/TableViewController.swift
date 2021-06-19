@@ -7,31 +7,37 @@
 //
 
 import SwiftUI
+import UIKit
 
 class TableViewController: UITableViewController{
+    var items = [TableViewItem]()
+    var name = "restaurant name"
+    
     override func viewDidLoad(){
         super.viewDidLoad()
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 5;
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexpath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableview", for: indexpath)
-        
-        let label = cell.viewWithTag(1000) as! UILabel
-        if indexpath.row % 5 == 0{
-            label.text = "a"
-        }else if indexpath.row % 5 == 1{
-            label.text = "b"
-        }else if indexpath.row % 5 == 2{
-        label.text = "c"
-        }else if indexpath.row % 5 == 3{
-        label.text = "d"
-        }else if indexpath.row % 5 == 4{
-            label.text = "e"}
-        
-        return cell
+        for i in 0...44 {
+            let item1 = TableViewItem()
+            item1.text = name
+            items.append(item1)
         }
+    }
+    
+    // MARK:- Table View Data Source
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 45;
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
+    UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewItem", for: indexPath)
+        let item = items[indexPath.row]
+
+        configureText(for: cell, with: item)
+        return cell
+    }
+    
+    func configureText(for cell: UITableViewCell, with item: TableViewItem) {
+              let label = cell.viewWithTag(1000) as! UILabel
+              label.text = item.text
+    }
 }
