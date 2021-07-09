@@ -47,4 +47,4 @@
 
 &#10004; **시뮬레이션 영상**<br><br>
 ----
-![simulation](https://user-images.githubusercontent.com/78426705/125097671-544da380-e111-11eb-94c5-4345bc1a15f0.gif)
+![simul](https://user-images.githubusercontent.com/78426705/125098601-20bf4900-e112-11eb-9597-e22971765eee.gif)
